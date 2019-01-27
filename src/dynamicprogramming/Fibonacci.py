@@ -5,21 +5,20 @@ class Fibonacci(object):
 
     def fibSerics(self, fib_range):
         table = []
-        while len(table) < fib_range+1:
+        while len(table) < fib_range + 1:
             table.append(0)
 
-        #Base case for the serics
+        # Base case for the serics
         if fib_range <= 1:
             return fib_range
         else:
             if table[fib_range - 1] == 0:
-                table[fib_range - 1] = self.fibSerics(fib_range-1)
+                table[fib_range - 1] = self.fibSerics(fib_range - 1)
             if table[fib_range - 2] == 0:
-                table[fib_range - 2] = self.fibSerics(fib_range-2)
+                table[fib_range - 2] = self.fibSerics(fib_range - 2)
 
-            table[fib_range] = table[fib_range-1] + table[fib_range - 2]
+            table[fib_range] = table[fib_range - 1] + table[fib_range - 2]
         return table[fib_range]
-
 
     def space_optimised_fib_serics(self, n):
         a = 0
@@ -31,7 +30,7 @@ class Fibonacci(object):
         elif n == 1:
             return b
         else:
-            for i in range(2,n):
+            for i in range(2, n):
                 c = a + b
                 print("C :: ", c)
                 a = b

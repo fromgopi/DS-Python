@@ -11,7 +11,6 @@ class CountAndSay(object):
         return s
 
 
-
 if __name__ == '__main__':
     coun = CountAndSay()
     print(coun.countNSay(121))

@@ -5,4 +5,4 @@ class FibonacciDemo():
 
     if __name__ == '__main__':
         fibonacci = Fibonacci()
-        print(fibonacci.fibSerics(100))
+        print(fibonacci.fibSerics(10))

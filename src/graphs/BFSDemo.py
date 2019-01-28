@@ -1,3 +1,4 @@
+from src.graphs.BFS import BFS
 from src.graphs.Graph import Graph
 
 
@@ -16,3 +17,6 @@ class BSFDemo:
              }
         graph = Graph(g)
         print(graph.edges())
+
+        bfs = BFS.min_num_edges_between_nodes('Frankfurt')
+        print(bfs)

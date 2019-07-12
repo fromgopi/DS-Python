@@ -16,7 +16,6 @@ class BSFDemo:
              'Stuttgart': {'Numberg': 183}
              }
         graph = Graph(g)
-        print(graph.edges())
 
-        bfs = BFS.min_num_edges_between_nodes('Frankfurt')
+        bfs = BFS.min_num_edges_between_nodes(graph,'Frankfurt')
         print(bfs)

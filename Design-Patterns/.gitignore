@@ -102,7 +102,6 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-<<<<<<< HEAD
-=======
 /.idea/*
 test_samples
+*.iml

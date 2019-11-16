@@ -1,5 +1,5 @@
-from src.designpatterns.creational.builderPattern.Vehicle import Vehicle
-from src.designpatterns.creational.builderPattern.VehicleBuilder import VehicleBuilder
+from designpatterns.creational.builderPattern import Vehicle
+from designpatterns.creational.builderPattern import VehicleBuilder
 
 
 class CarBuilder(VehicleBuilder):

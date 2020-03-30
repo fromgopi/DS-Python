@@ -23,5 +23,3 @@ if __name__ == '__main__':
     for item in items:
         proc = Process(target=printer, args=(item, lock))
         proc.start()
-
-    

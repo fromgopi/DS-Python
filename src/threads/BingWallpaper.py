@@ -53,6 +53,7 @@ def main_method():
         print("HttpError")
         print(httpError)
         request.urlretrieve(sd_image_url, filename=file_path)
+        set_mac_screen_background(file_path)
 
     except AttributeError as ae:
         print("Attribute Error")

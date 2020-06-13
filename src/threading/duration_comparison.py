@@ -33,7 +33,7 @@ def visualize_runtimes(results, title):
     plt.grid(axis='x')
     plt.ylabel("Tasks")
     plt.xlabel("Seconds")
-    plt.xlim(0, 22.5)
+    plt.xlim(0, 22.4)
     ytks = range(len(results))
     plt.yticks(ytks, ['job {}'.format(exp) for exp in ytks])
     plt.title(title)
@@ -42,7 +42,7 @@ def visualize_runtimes(results, title):
 
 if __name__ == '__main__':
     plt.subplot(1, 2, 1)
-    visualize_runtimes(multithreading(cpu_heavy, range(5), 5), "Multithreading")
+    visualize_runtimes(multithreading(cpu_heavy, range(4), 4), "Multithreading")
     plt.subplot(1, 2, 2)
-    visualize_runtimes(multiprocessing(cpu_heavy, range(5), 5), "Multiprocessing")
+    visualize_runtimes(multiprocessing(cpu_heavy, range(4), 4), "Multiprocessing")
     plt.show()

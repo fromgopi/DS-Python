@@ -6,3 +6,4 @@
   1. Stacks
   2. Queues
   3. Trees
+  4. Graphs

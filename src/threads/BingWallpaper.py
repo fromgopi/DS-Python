@@ -5,10 +5,13 @@ from urllib import request
 from urllib.error import HTTPError
 
 from requests import RequestException, get
+from logging import getLogger, Formatter, DEBUG
 
 BASE_URL = 'http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1'
 IMAGE_OUTPUT_FOLDER = '/var/api-logs/bing_wallpapers/'
+LOG_FOLDER='/var/api-log'
 BING_URL = 'http://www.bing.com'
+DEFAULT = '%(asctime)s - %(thread)d - %(name)s - %(module)s - %(threadName)s - %(levelname)s - %(message)s'
 
 # Apple Script to set wallpaper
 SCRIPT = """/usr/bin/osascript<<END
@@ -17,6 +20,23 @@ set desktop picture to POSIX file "%s"
 end tell
 END"""
 
+
+def log_module(file_name='bing'):
+    from logging.handlers import RotatingFileHandler
+    try:
+        log_file = LOG_FOLDER + '/' + file_name + '.log'
+        log = getLogger(log_file)
+        handler = RotatingFileHandler(log_file, maxBytes=100000000, backupCount=3)
+        formatter = Formatter(DEFAULT)
+        handler.setFormatter(formatter)
+        log.addHandler(handler)
+        log.setLevel(DEBUG)
+        return log
+    except Exception as ex:
+        print(ex)
+
+
+LOG = log_module()
 
 def set_mac_screen_background(file):
     """
@@ -51,6 +71,7 @@ def main_method():
         set_mac_screen_background(file_path)
     except HTTPError as httpError:
         print("HttpError")
+        LOG.debug('HTTP ERROR')
         print(httpError)
         request.urlretrieve(sd_image_url, filename=file_path)
         set_mac_screen_background(file_path)
@@ -68,3 +89,4 @@ def main_method():
 
 if __name__ == '__main__':
     main_method()
+    # log_module()

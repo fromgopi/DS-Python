@@ -9,7 +9,7 @@ from logging import getLogger, Formatter, DEBUG
 
 BASE_URL = 'http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1'
 IMAGE_OUTPUT_FOLDER = '/var/api-logs/bing_wallpapers/'
-LOG_FOLDER='/var/api-log'
+LOG_FOLDER='/var/api-logs'
 BING_URL = 'http://www.bing.com'
 DEFAULT = '%(asctime)s - %(thread)d - %(name)s - %(module)s - %(threadName)s - %(levelname)s - %(message)s'
 
@@ -36,7 +36,7 @@ def log_module(file_name='bing'):
         print(ex)
 
 
-LOG = log_module()
+# LOG = log_module()
 
 def set_mac_screen_background(file):
     """
@@ -52,6 +52,7 @@ def set_mac_screen_background(file):
 
 
 def main_method():
+    LOG = log_module()	
     try:
         # Check if the folder in the path exists.
         # os.mkdir(path=IMAGE_OUTPUT_FOLDER, mode=0o777)
@@ -67,6 +68,7 @@ def main_method():
         if not os.path.exists(file_path):
             request.urlretrieve(hd_image_url, filename=file_path)
         else:
+            LOG.debug('Nothing can be done')
             print("nothing can be done")
         set_mac_screen_background(file_path)
     except HTTPError as httpError:
@@ -80,6 +82,7 @@ def main_method():
         print("Attribute Error")
         print(ae)
     except (FileExistsError, FileNotFoundError) as fe:
+        LOG.error('File Error')
         print("File Error")
         print(fe)
     except RequestException as re:

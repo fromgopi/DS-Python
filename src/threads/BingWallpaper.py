@@ -57,6 +57,7 @@ def main_method():
         # Check if the folder in the path exists.
         # os.mkdir(path=IMAGE_OUTPUT_FOLDER, mode=0o777)
         image_data = json.loads(get(BASE_URL).text)
+        LOG.info("image")
         # This URL is for high Definition.
         sd_image_url = BING_URL + image_data.get('images')[0].get('url')
         hd_image_url = BING_URL + '/hpwp' + image_data.get('images')[0].get('hsh')
@@ -72,6 +73,7 @@ def main_method():
             print("nothing can be done")
         set_mac_screen_background(file_path)
     except HTTPError as httpError:
+        LOG.error("HttpError")
         print("HttpError")
         LOG.debug('HTTP ERROR')
         print(httpError)
@@ -79,6 +81,7 @@ def main_method():
         set_mac_screen_background(file_path)
 
     except AttributeError as ae:
+        LOG.error("Attribute Error")
         print("Attribute Error")
         print(ae)
     except (FileExistsError, FileNotFoundError) as fe:
@@ -86,10 +89,12 @@ def main_method():
         print("File Error")
         print(fe)
     except RequestException as re:
+        LOG.error("Request Exception")
         print("Request Exception")
         print(re)
 
 
 if __name__ == '__main__':
+    # LOG.info("Inside Main Method main method func is been called for the first time.")
     main_method()
     # log_module()

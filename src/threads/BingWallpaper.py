@@ -57,7 +57,7 @@ def main_method():
         # Check if the folder in the path exists.
         # os.mkdir(path=IMAGE_OUTPUT_FOLDER, mode=0o777)
         image_data = json.loads(get(BASE_URL).text)
-        LOG.info("image")
+        LOG.info(image_data)
         # This URL is for high Definition.
         sd_image_url = BING_URL + image_data.get('images')[0].get('url')
         hd_image_url = BING_URL + '/hpwp' + image_data.get('images')[0].get('hsh')

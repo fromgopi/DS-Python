@@ -1,4 +1,5 @@
 import os
+import requests as r
 from urllib import request
 
 
@@ -20,10 +21,12 @@ response_output = {
 }
 
 def get_apod_data():
-    response = request.get().json()
+    response = r.get(ENDPOINT_URL).json()
+    return response
     
 
 def download_pic():
+    
     date = response_output['date']
     title = response_output['title'].replace(" ", "_")
     media_type = response_output['media_type']
@@ -35,5 +38,5 @@ def download_pic():
         request.urlretrieve(hdurl, file_path)
 
 if __name__ == '__main__':
-    download_pic()
+    get_apod_data()
     

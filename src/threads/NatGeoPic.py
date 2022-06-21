@@ -9,6 +9,7 @@ OUTPUT_FOLDER = '/var/api-logs/nasa_wallpapers/'
 
 
 
+
 response_output = {
 	"copyright": "Meiying Lee",
 	"date": "2022-06-21",

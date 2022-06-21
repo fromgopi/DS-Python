@@ -7,6 +7,7 @@ ENDPOINT_URL = 'https://api.nasa.gov/planetary/apod?api_key='+API_KEY
 LOG_FOLDER = '/var/api-logs/nasa.log'
 OUTPUT_FOLDER = '/var/api-logs/nasa_wallpapers/'  
 
+
 response_output = {
 	"copyright": "Meiying Lee",
 	"date": "2022-06-21",

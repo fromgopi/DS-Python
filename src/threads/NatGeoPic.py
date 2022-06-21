@@ -39,4 +39,4 @@ def download_pic():
 
 if __name__ == '__main__':
     # get_apod_data()
-    
+    download_pic()

@@ -26,7 +26,7 @@ def get_apod_data():
     
 
 def download_pic():
-    
+    response_output = get_apod_data()
     date = response_output['date']
     title = response_output['title'].replace(" ", "_")
     media_type = response_output['media_type']
@@ -38,5 +38,5 @@ def download_pic():
         request.urlretrieve(hdurl, file_path)
 
 if __name__ == '__main__':
-    get_apod_data()
+    # get_apod_data()
     

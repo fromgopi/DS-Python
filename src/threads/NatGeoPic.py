@@ -25,5 +25,4 @@ def download_pic():
         request.urlretrieve(hdurl, file_path)
 
 if __name__ == '__main__':
-    # get_apod_data()
     download_pic()

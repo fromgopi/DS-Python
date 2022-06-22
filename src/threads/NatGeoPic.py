@@ -1,15 +1,30 @@
+import logging
+import logging.handlers
 import os
 import requests as r
 from urllib import request
+from BingWallpaper import set_mac_screen_background
 
 API_KEY = 'ARAoAEvrlNOw3OpFXEH54FczEw4LRlrC9qBlFhDn'
 ENDPOINT_URL = 'https://api.nasa.gov/planetary/apod?api_key='+API_KEY
 LOG_FOLDER = '/var/api-logs/nasa.log'
 OUTPUT_FOLDER = '/var/api-logs/nasa_wallpapers/'
+PIC_FOLDER = OUTPUT_FOLDER + 'Supernova_Remnant:_The_Veil_Nebula.jpg'
+DEFAULT = '%(asctime)s - %(thread)d - %(name)s - %(module)s - %(threadName)s - %(levelname)s => %(message)s'
+DEFAULT_LOG_LEVEL = 'DEBUG'
 
 def get_apod_data():
     response = r.get(ENDPOINT_URL).json()
     return response
+
+def setup_logger():
+    handler = logging.handlers.WatchedFileHandler(LOG_FOLDER)
+    formatter = logging.Formatter(DEFAULT)
+    handler.setFormatter(formatter)
+    log = logging.getLogger()
+    log.addHandler(handler)
+    log.setLevel(DEFAULT_LOG_LEVEL)
+    return log
     
 
 def download_pic():
@@ -25,4 +40,9 @@ def download_pic():
         request.urlretrieve(hdurl, file_path)
 
 if __name__ == '__main__':
-    download_pic()
+    # download_pic()
+    logger = setup_logger()
+    logger.info("This is info log")
+    logger.fatal("This is fatal log")
+    logger.debug("This is debug log")
+    set_mac_screen_background(file=PIC_FOLDER)

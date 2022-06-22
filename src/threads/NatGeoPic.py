@@ -6,7 +6,7 @@ from urllib import request
 API_KEY = 'ARAoAEvrlNOw3OpFXEH54FczEw4LRlrC9qBlFhDn'
 ENDPOINT_URL = 'https://api.nasa.gov/planetary/apod?api_key='+API_KEY
 LOG_FOLDER = '/var/api-logs/nasa.log'
-OUTPUT_FOLDER = '/var/api-logs/nasa_wallpapers/'  
+OUTPUT_FOLDER = '/var/api-logs/nasa_wallpapers/'
 
 def get_apod_data():
     response = r.get(ENDPOINT_URL).json()

@@ -60,4 +60,3 @@ if __name__ == '__main__':
     quick_sort(start = 0, end= size-1, array=arr)
     sort_et = t.default_timer()
     print("time take for sorting list ", (sort_et-sort_st))
-

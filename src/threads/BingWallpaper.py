@@ -6,6 +6,7 @@ from urllib.error import HTTPError
 
 from requests import RequestException, get
 from logging import getLogger, Formatter, DEBUG
+import datetime as dt
 
 BASE_URL = 'http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1'
 IMAGE_OUTPUT_FOLDER = '/var/api-logs/bing_wallpapers/'
@@ -77,6 +78,8 @@ def main_method():
         print("HttpError")
         LOG.debug('HTTP ERROR')
         print(httpError)
+        LOG.debug("time " +  dt.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+        print(dt.datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         request.urlretrieve(sd_image_url, filename=file_path)
         set_mac_screen_background(file_path)
 

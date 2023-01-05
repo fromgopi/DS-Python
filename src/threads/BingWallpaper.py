@@ -98,6 +98,6 @@ def main_method():
 
 
 if __name__ == '__main__':
-    # LOG.info("Inside Main Method main method func is been called for the first time.")
+    
     main_method()
     # log_module()

@@ -1,6 +1,7 @@
 import logging
 import logging.handlers
 import os
+import time
 import requests as r
 from urllib import request
 from BingWallpaper import set_mac_screen_background
@@ -28,6 +29,7 @@ def setup_logger():
     
 
 def download_pic():
+    st = time.time()
     response_output = get_apod_data()
     date = response_output['date']
     title = response_output['title'].replace(" ", "_")
@@ -36,13 +38,18 @@ def download_pic():
     hdurl = response_output['hdurl']
     image_name = title+'.jpg'
     file_path = OUTPUT_FOLDER + image_name
+    lapsed_time = time.time() - st
+    print("Lapsed time ")
+    print(lapsed_time)
     if not os.path.exists(file_path):
         request.urlretrieve(hdurl, file_path)
+    et = time.time()
+    print("Time take to download the nasa pic ")
+    print(et-st)
 
 if __name__ == '__main__':
-    # download_pic()
     logger = setup_logger()
     logger.info("This is info log")
     logger.fatal("This is fatal log")
     logger.debug("This is debug log")
-    set_mac_screen_background(file=PIC_FOLDER)
+    download_pic()

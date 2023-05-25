@@ -6,4 +6,3 @@ class ThreadedUrl(Thread):
 
     pass
 
-

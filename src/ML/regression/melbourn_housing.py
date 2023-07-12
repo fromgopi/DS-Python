@@ -7,3 +7,4 @@ print(melbourne_housing_data.describe())
 print(melbourne_housing_data.columns)
 
 
+

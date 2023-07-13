@@ -10,4 +10,3 @@ def populate_list(ran):
         my_randoms.append(r.randrange(1, 10000, 1))
     return my_randoms
 
-

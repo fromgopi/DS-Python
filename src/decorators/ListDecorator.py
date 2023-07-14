@@ -19,7 +19,7 @@ def uppercase_decorator(func):
         string_upper = func().upper()
         return string_upper
     return f
-
+ 
   
 @splitter_decorator
 @uppercase_decorator 

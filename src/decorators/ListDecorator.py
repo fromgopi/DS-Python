@@ -3,7 +3,7 @@ def lowercase_decorator(function):
         func = function()
         string_lower = func.lower()
         return string_lower
-    return wrapper
+    return wrapper 
 
 def splitter_decorator(function): 
     def wrapper():

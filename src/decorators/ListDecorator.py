@@ -22,7 +22,7 @@ def uppercase_decorator(func):
 
 
 @splitter_decorator
-@uppercase_decorator
+@uppercase_decorator 
 def hello():
     return "Hello World"
 

@@ -20,7 +20,7 @@ def uppercase_decorator(func):
         return string_upper
     return f
 
-
+ 
 @splitter_decorator
 @uppercase_decorator 
 def hello():

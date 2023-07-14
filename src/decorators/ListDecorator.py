@@ -12,7 +12,7 @@ def splitter_decorator(function):
         return string_split
     print(wrapper)
     return wrapper
-
+ 
 def uppercase_decorator(func): 
     def f():
         fu = func()

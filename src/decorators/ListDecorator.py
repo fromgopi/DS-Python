@@ -5,7 +5,7 @@ def lowercase_decorator(function):
         return string_lower
     return wrapper
 
-def splitter_decorator(function):
+def splitter_decorator(function): 
     def wrapper():
         func = function()
         string_split = func.split()

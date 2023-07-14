@@ -9,7 +9,7 @@ def splitter_decorator(function):
     def wrapper():
         func = function()
         string_split = func.split()
-        return string_split
+        return string_split 
     print(wrapper)
     return wrapper
  

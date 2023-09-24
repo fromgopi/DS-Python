@@ -14,4 +14,3 @@ class CountAndSay(object):
 if __name__ == '__main__':
     coun = CountAndSay()
     print(coun.countNSay(121))
-

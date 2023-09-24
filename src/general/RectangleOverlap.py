@@ -24,4 +24,3 @@ if __name__ == '__main__':
     overlap = RectangleOverlap()
     print(overlap.isRectangleOverlap(rec1, rec2))
     
-    

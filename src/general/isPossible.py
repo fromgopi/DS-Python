@@ -18,3 +18,4 @@ def isPossible(a, b, c, d):
 if __name__ == '__main__':
     isPossible(1, 4, 5, 9)
 
+
